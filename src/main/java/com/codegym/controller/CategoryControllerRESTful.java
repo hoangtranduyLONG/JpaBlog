@@ -1,8 +1,6 @@
 package com.codegym.controller;
-
 import com.codegym.model.Blog;
 import com.codegym.model.Category;
-
 import com.codegym.service.IBlogService;
 import com.codegym.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.List;
 import java.util.Optional;
-
 @RestController
 @RequestMapping("/api/category")
 public class CategoryControllerRESTful {

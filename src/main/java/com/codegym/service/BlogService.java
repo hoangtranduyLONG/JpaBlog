@@ -52,9 +52,4 @@ public class BlogService implements IBlogService{
     public Page<Blog> findAllByOrderByDateTime(Pageable pageable) {
         return blogRepository.findAllByOrderByDateTime(pageable);
     }
-//
-//    @Override
-//    public Iterable<Blog> sortByName() {
-//        return blogRepository.sortByName();
-//    }
 }

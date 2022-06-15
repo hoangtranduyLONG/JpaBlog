@@ -1,17 +1,12 @@
 package com.codegym.controller;
-
 import com.codegym.model.Blog;
-import com.codegym.model.Category;
 import com.codegym.service.IBlogService;
 import com.codegym.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.Optional;
-
 @RestController
 @RequestMapping("/api/blog")
 public class BlogControllerRESTful {

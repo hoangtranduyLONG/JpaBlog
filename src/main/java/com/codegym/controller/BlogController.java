@@ -1,5 +1,4 @@
 package com.codegym.controller;
-
 import com.codegym.model.Blog;
 import com.codegym.model.Category;
 import com.codegym.service.IBlogService;
@@ -11,9 +10,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
 import java.util.Optional;
-
 @Controller
 public class BlogController {
 
