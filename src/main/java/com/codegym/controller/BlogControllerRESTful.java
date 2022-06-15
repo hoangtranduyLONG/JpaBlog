@@ -1,7 +1,6 @@
 package com.codegym.controller;
 import com.codegym.model.Blog;
 import com.codegym.service.IBlogService;
-import com.codegym.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,8 +12,6 @@ public class BlogControllerRESTful {
     @Autowired
     public IBlogService blogService;
 
-    @Autowired
-    public ICategoryService categoryService;
 
     @GetMapping
     public ResponseEntity<Iterable<Blog>> findAllBlog() {

@@ -1,8 +1,6 @@
 package com.codegym.controller;
 import com.codegym.model.Blog;
-import com.codegym.model.Category;
 import com.codegym.service.IBlogService;
-import com.codegym.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,13 +15,7 @@ public class BlogController {
     @Autowired
     private IBlogService blogService;
 
-    @Autowired
-    private ICategoryService categoryService;
 
-    @ModelAttribute("categories")
-    public Iterable<Category> categories(){
-        return categoryService.findAll();
-    }
 
     @GetMapping("/create-blog")
     public ModelAndView showCreateForm() {

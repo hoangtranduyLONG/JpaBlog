@@ -1,6 +1,6 @@
 package com.codegym.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -15,9 +15,7 @@ public class Blog {
     private String content;
     private String dateTime;
 
-    @ManyToOne
-    @JsonManagedReference(value = "category-blog")
-    private Category category;
+
 
     public Blog() {
     }
@@ -28,19 +26,13 @@ public class Blog {
         this.content = content;
     }
 
-    public Blog(Long id, String name, String content, Category category) {
-        this.id = id;
-        this.name = name;
-        this.content = content;
-        this.category = category;
-    }
 
-    public Blog(Long id, String name, String content, String dateTime, Category category) {
+    public Blog(Long id, String name, String content, String dateTime) {
         this.id = id;
         this.name = name;
         this.content = content;
         this.dateTime = dateTime;
-        this.category = category;
+
     }
 
     public Long getId() {
@@ -67,13 +59,8 @@ public class Blog {
         this.content = content;
     }
 
-    public Category getCategory() {
-        return category;
-    }
 
-    public void setCategory(Category category) {
-        this.category = category;
-    }
+
 
     public String getDateTime() {
         return dateTime;
