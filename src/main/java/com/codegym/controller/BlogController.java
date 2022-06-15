@@ -1,21 +1,37 @@
 package com.codegym.controller;
 import com.codegym.model.Blog;
+import com.codegym.model.Category;
+
+import com.codegym.service.BlogService;
+import com.codegym.service.CategoryService;
 import com.codegym.service.IBlogService;
+import com.codegym.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.Date;
+import java.util.List;
 import java.util.Optional;
+
 @Controller
 public class BlogController {
 
     @Autowired
-    private IBlogService blogService;
+    private BlogService blogService;
 
+    @Autowired
+    private CategoryService categoryService;
 
+    @ModelAttribute("categories")
+    public Iterable<Category> categories(){
+        return categoryService.findAll();
+    }
 
     @GetMapping("/create-blog")
     public ModelAndView showCreateForm() {
@@ -107,5 +123,4 @@ public class BlogController {
         modelAndView.addObject("blog", blogs);
         return modelAndView;
     }
-
 }

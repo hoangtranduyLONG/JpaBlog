@@ -15,24 +15,16 @@ public class Blog {
     private String content;
     private String dateTime;
 
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
-
-    public Blog() {
+    public Category getCategory() {
+        return category;
     }
 
-    public Blog(Long id, String name, String content) {
-        this.id = id;
-        this.name = name;
-        this.content = content;
-    }
-
-
-    public Blog(Long id, String name, String content, String dateTime) {
-        this.id = id;
-        this.name = name;
-        this.content = content;
-        this.dateTime = dateTime;
-
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public Long getId() {
@@ -50,7 +42,7 @@ public class Blog {
     public void setName(String name) {
         this.name = name;
     }
-
+git
     public String getContent() {
         return content;
     }
