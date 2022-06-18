@@ -1,9 +1,9 @@
 package com.codegym.configuration;
 import com.codegym.formatter.CategoryFormatter;
-import com.codegym.service.BlogService;
-import com.codegym.service.CategoryService;
-import com.codegym.service.IBlogService;
-import com.codegym.service.ICategoryService;
+import com.codegym.repository.IBlogRepository;
+import com.codegym.service.blog.BlogService;
+import com.codegym.service.blog.IBlogService;
+import com.codegym.service.category.CategoryService;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -36,7 +36,7 @@ import java.util.Properties;
 @Configuration  //đánh đấu đây là file cấu hình dự án Spring
 @EnableWebMvc // đánh dấu dự án này hỗ trợ mô hình MVC
 @EnableTransactionManagement // đánh dấu dự án này hỗ trợ mô hình MVC
-@ComponentScan("com.codegym.controller")
+@ComponentScan("com.codegym")
 @EnableJpaRepositories("com.codegym.repository")
 @EnableSpringDataWebSupport
 public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
@@ -98,7 +98,7 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver"); //loại driver đang dùng
-        dataSource.setUrl("jdbc:mysql://localhost:3306/blog");//csdl đang dùng
+        dataSource.setUrl("jdbc:mysql://localhost:3306/blogger");//csdl đang dùng
         dataSource.setUsername("root");
         dataSource.setPassword("123456");
         return dataSource;
@@ -124,13 +124,14 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
         registry.addFormatter(new CategoryFormatter(applicationContext.getBean(CategoryService.class)));
     }
 
-    @Bean
-    public BlogService blogService(){
-        return new BlogService();
-    }
-    @Bean
-    public CategoryService categoryService(){
-        return new CategoryService();
-    }
-
+//    @Bean
+//    public IBlogRepository blogRepository() {
+//        return new BlogRepository();
+//    }
+//
+//    @Bean
+//    public IBlogService blogService() {
+//        return new BlogService() {
+//        };
+//    }
 }

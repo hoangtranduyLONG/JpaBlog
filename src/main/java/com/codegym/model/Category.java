@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "categories")
+@Table(name = "categorys")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,6 +16,7 @@ public class Category {
 
     @OneToMany(targetEntity = Blog.class)
     @JsonBackReference(value = "category-blog")
+
     private List<Blog> blogs;
 
     public Category() {

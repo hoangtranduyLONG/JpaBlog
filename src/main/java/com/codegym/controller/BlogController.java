@@ -1,11 +1,10 @@
 package com.codegym.controller;
+
+
 import com.codegym.model.Blog;
 import com.codegym.model.Category;
-
-import com.codegym.service.BlogService;
-import com.codegym.service.CategoryService;
-import com.codegym.service.IBlogService;
-import com.codegym.service.ICategoryService;
+import com.codegym.service.blog.IBlogService;
+import com.codegym.service.category.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -23,10 +22,10 @@ import java.util.Optional;
 public class BlogController {
 
     @Autowired
-    private BlogService blogService;
+    private IBlogService blogService;
 
     @Autowired
-    private CategoryService categoryService;
+    private ICategoryService categoryService;
 
     @ModelAttribute("categories")
     public Iterable<Category> categories(){
@@ -123,4 +122,11 @@ public class BlogController {
         modelAndView.addObject("blog", blogs);
         return modelAndView;
     }
+//    @GetMapping("/sortByName")
+//    public ModelAndView sortByName(){
+//        Iterable<Blog> blogs = blogService.sortByName();
+//        ModelAndView modelAndView = new ModelAndView("/blog/list");
+//        modelAndView.addObject("blog",blogs);
+//        return modelAndView;
+//    }
 }
